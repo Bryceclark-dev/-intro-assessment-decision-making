@@ -1,5 +1,7 @@
 package com.kenzie.app;
 
+import java.util.Scanner;
+
 public class Main {
     //------------------------------------------------------------------------------------------------------------------
     //EXERCISE ONE
@@ -45,6 +47,22 @@ public class Main {
         System.out.println("Congratulations!  You have won a lifetime supply of your favorite snack!");
 
         // Write your code here
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the name of your favorite snack");
+        String favSnack = scanner.nextLine();
+        System.out.println("Enter the number of times you would eat the snack in a day");
+        int snackperday = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("Enter your current age");
+        int age = scanner.nextInt();
+        scanner.nextLine();
+
+        int totalSnacks = (100 - age) * (365 * snackperday);
+
+        System.out.println("You will receive "+snackperday+" "+favSnack+" per day, for a grand total of "+totalSnacks+" "+favSnack+".");
+
+
 
 
     }
@@ -143,6 +161,25 @@ public class Main {
         System.out.println("Welcome to the Temperature Converter!");
 
         // Write your code here
+        double initialTemp = 0;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("What would you like to convert to, Celsius or Fahrenheit? Enter c or f");
+        String convertTo = scanner.nextLine();
+        if(convertTo.equalsIgnoreCase("c")||convertTo.equalsIgnoreCase("f")){
+            System.out.println("What temperature would you like to convert.");
+            initialTemp = scanner.nextDouble();
+        }else{
+            System.out.println("Invalid entry: Please only enter c or f");
+        }
+        double result = 0;
+
+        if(convertTo.equalsIgnoreCase("f")){
+            result = (initialTemp - 32) * 5/9;
+            System.out.println(initialTemp+"°C converted to Fahrenheit is "+result+"°F");
+        }else if(convertTo.equalsIgnoreCase("c")){
+            result = (initialTemp * 9)/5 + 32;
+            System.out.println(initialTemp+"°F converted to Celsius is "+result+"°C");
+        }
 
     }
 
@@ -150,8 +187,8 @@ public class Main {
         //To run your code uncomment the code for each exercise as you write them and want to test them
         //and see the output.
 
-        LifeTimeSupply();
+        //LifeTimeSupply();
         //FutureAge();
-        //TemperatureConversion();
+        TemperatureConversion();
     }
 }
