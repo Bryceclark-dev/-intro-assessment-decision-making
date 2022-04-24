@@ -98,6 +98,20 @@ public class Main {
         System.out.println("Welcome to the Future Age Calculator!");
 
         // Write your code here
+        int firstAge, secondAge, birthYear, futureYear = 0;
+        String message;
+        
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the year you were born");
+        birthYear = scanner.nextInt();
+        System.out.println("Enter a year in the future");
+        futureYear = scanner.nextInt();
+
+        firstAge = futureYear - birthYear - 1;
+        secondAge = futureYear - birthYear;
+        message = "You will be either "+firstAge+" or "+secondAge+" in "+futureYear;
+
+        System.out.println(message);
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -174,10 +188,10 @@ public class Main {
         double result = 0;
 
         if(convertTo.equalsIgnoreCase("f")){
-            result = (initialTemp - 32) * 5/9;
+            result = (initialTemp * 9)/5 + 32; 
             System.out.println(initialTemp+"°C converted to Fahrenheit is "+result+"°F");
         }else if(convertTo.equalsIgnoreCase("c")){
-            result = (initialTemp * 9)/5 + 32;
+            result = (initialTemp - 32) * 5/9;
             System.out.println(initialTemp+"°F converted to Celsius is "+result+"°C");
         }
 
@@ -187,8 +201,8 @@ public class Main {
         //To run your code uncomment the code for each exercise as you write them and want to test them
         //and see the output.
 
-        //LifeTimeSupply();
-        //FutureAge();
+        LifeTimeSupply();
+        FutureAge();
         TemperatureConversion();
     }
 }
